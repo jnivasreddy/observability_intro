@@ -15,10 +15,16 @@ load from **`.env` inside this folder**. You can open this folder in its own win
 
 From this folder:
 
+Use **`ai-dev` with Python 3.12**. `requirements.txt` installs both the kiosk
+and all eight `opentel_examples`, including their tested tracing integrations.
+
 ```sh
-conda activate memory-lab
+conda activate ai-dev
 python -m pip install -r requirements.txt
 ```
+
+To recreate the environment on another machine, run
+`conda env create -f environment.yml`, then `conda activate ai-dev`.
 
 ## 1. Generate ordinary logs in a tiny AI app
 
@@ -51,7 +57,7 @@ the full path, marks each startup and retains previous logs. Its database is
 Keep the app running. In a second terminal in this folder:
 
 ```sh
-conda activate memory-lab
+conda activate ai-dev
 locust -f load_testing/locustfile.py --host http://127.0.0.1:8090 --web-host 127.0.0.1
 ```
 

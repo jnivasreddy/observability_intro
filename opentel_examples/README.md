@@ -14,12 +14,13 @@ explicit offline test transport.
 From this `opentel_examples` folder:
 
 ```sh
-conda activate memory-lab
+conda activate ai-dev
 python -m pip install -r requirements.txt
 ```
 
-Versions are pinned for the existing Python 3.9 `memory-lab` environment,
-including the wrapper-library version used by the OpenAI integration.
+The supported environment is **`ai-dev`, Python 3.12**. OpenAI and LangSmith
+versions match that environment. The OpenTelemetry integration and its wrapper
+library are pinned together to keep the instrumentation examples compatible.
 
 The examples read **`../.env`**, the `.env` inside `session_1_monitoring`. Your
 existing `OPEN_ROUTER_API_KEY` is used. The Python library is the **OpenAI SDK**,
