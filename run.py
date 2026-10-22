@@ -15,7 +15,9 @@ def main():
     args = parser.parse_args()
     log = request_logger()
     log.info("Application starting: run_id=%s tracing=%s", uuid4().hex, TRACING)
+    log.info("Python runtime: version=%s executable=%s", sys.version.split()[0], sys.executable)
     print("Application log: " + str(LOG_PATH), flush=True)
+    print("Python: " + sys.executable, flush=True)
     if not args.skip_model_check:
         from agent import get_model
         try:

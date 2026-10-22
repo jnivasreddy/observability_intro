@@ -58,7 +58,7 @@ Keep the app running. In a second terminal in this folder:
 
 ```sh
 conda activate ai-dev
-locust -f load_testing/locustfile.py --host http://127.0.0.1:8090 --web-host 127.0.0.1
+python -m locust -f load_testing/locustfile.py --host http://127.0.0.1:8090 --web-host 127.0.0.1
 ```
 
 Open **http://localhost:8089**, enter **2 users**, spawn rate **1**, and start.
