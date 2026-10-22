@@ -1,0 +1,8 @@
+langchain-openai==0.3.35
+langchain-core==0.3.86
+pydantic>=2.10,<3
+python-dotenv>=1,<2
+streamlit>=1.40,<2
+requests>=2.31,<3
+locust>=2.31,<3
+opentelemetry-sdk>=1.27,<2
