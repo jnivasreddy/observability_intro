@@ -1,5 +1,6 @@
 """The kiosk's model/tool loop, with ordinary application logs."""
 from functools import lru_cache
+from contextlib import nullcontext
 import json
 import os
 import time
@@ -7,6 +8,8 @@ from uuid import uuid4
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, ToolMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langsmith import trace
+from langsmith.utils import tracing_is_enabled
 from config import ROOT
 from database import read_current_order
 from sessions import require_user, load_history, save_turn
@@ -45,7 +48,12 @@ def chat(query, token, profile=None):
     config = {"configurable": {"token": token, "faults": faults, "log": log}}
     started = time.perf_counter()
     log.info("Message received: %s", json.dumps(query))
-    with span("chat", request_id=request_id):
+    # LangChain automatically traces its calls; this parent connects the calls
+    # made by our plain Python loop into one chat-request trace. Never trace token.
+    parent = (trace("kiosk.chat", inputs={"query": query},
+                    metadata={"request_id": request_id})
+              if tracing_is_enabled() else nullcontext())
+    with parent as root, span("chat", request_id=request_id):
         try:
             messages = prompt.invoke({"query": query, "history": load_history(user["customer_id"])}).to_messages()
             llm = get_model().bind_tools(tools)
@@ -82,6 +90,10 @@ def chat(query, token, profile=None):
             tool_pass = all(c["requested"] == c["actual"] for c in faults.calls)
             state_pass = order.get("total_paise", 0) <= 50000
             save_turn(user["customer_id"], HumanMessage(content=query), response)
+            if root is not None:
+                root.outputs = {"answer": response.content, "request_id": request_id,
+                                "saved_order": {key: order.get(key) for key in
+                                                ("items", "total_paise", "status", "payment_status")}}
             log.info("Request completed: elapsed_ms=%.2f", (time.perf_counter() - started) * 1000)
             return {"request_id": request_id, "answer": response.content, "order": order,
                     "checks": {"tool_selection_pass": tool_pass, "order_limit_pass": state_pass}}

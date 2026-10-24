@@ -11,7 +11,7 @@ TRACING = os.getenv("KIOSK_TRACING", "off")
 if TRACING not in {"off", "manual", "otel"}:
     raise ValueError("KIOSK_TRACING must be off, manual or otel")
 # This lesson introduces local instrumentation before any hosted tracing service.
-os.environ["LANGSMITH_TRACING"] = "false"
+# os.environ["LANGSMITH_TRACING"] = "false"
 
 
 def initialize_database():
