@@ -1,0 +1,1 @@
+case_id,source_trace_url,source_root_id,first_incorrect_run_id,sample_type,human_verdict,failure_category,evidence_note,expected_behavior,judge_applicable,human_target_fail,code_check_pass,judge_flagged_fail,judge_reason,version,attempt,replay_pass,reviewer

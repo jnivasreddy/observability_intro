@@ -1,0 +1,83 @@
+{
+  "notice": "SYNTHETIC teaching fixture; representative LangSmith run fields, not a byte-for-byte UI export.",
+  "case_id": "T08",
+  "captured_state_before": {
+    "items": [],
+    "total_paise": 0,
+    "status": "draft",
+    "payment_status": "unpaid"
+  },
+  "runs": [
+    {
+      "id": "9e8806d6-3a89-5b6f-8c3d-c30ffa5cd152",
+      "trace_id": "9e8806d6-3a89-5b6f-8c3d-c30ffa5cd152",
+      "parent_run_id": null,
+      "name": "kiosk.chat",
+      "run_type": "chain",
+      "start_time": "2026-10-27T09:08:00+00:00",
+      "end_time": "2026-10-27T09:08:00.810000+00:00",
+      "inputs": {
+        "query": "Add cold coffee to my order."
+      },
+      "outputs": {
+        "answer": "How many cold coffees would you like?",
+        "request_id": "T08",
+        "saved_order": {
+          "items": [],
+          "total_paise": 0,
+          "status": "draft",
+          "payment_status": "unpaid"
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T08"
+        }
+      }
+    },
+    {
+      "id": "20adecf2-5df5-5dfd-8099-4d70aa5ff1de",
+      "trace_id": "9e8806d6-3a89-5b6f-8c3d-c30ffa5cd152",
+      "parent_run_id": "9e8806d6-3a89-5b6f-8c3d-c30ffa5cd152",
+      "name": "ChatOpenAI",
+      "run_type": "llm",
+      "start_time": "2026-10-27T09:08:00.500000+00:00",
+      "end_time": "2026-10-27T09:08:00.800000+00:00",
+      "inputs": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use actual menu and order tools. Draft is not paid. Above ₹500 requires approval."
+          },
+          {
+            "role": "user",
+            "content": "Add cold coffee to my order."
+          }
+        ]
+      },
+      "outputs": {
+        "message": {
+          "role": "assistant",
+          "content": "How many cold coffees would you like?"
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T08"
+        }
+      }
+    }
+  ]
+}

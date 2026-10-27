@@ -1,0 +1,88 @@
+{
+  "notice": "SYNTHETIC teaching fixture; representative LangSmith run fields, not a byte-for-byte UI export.",
+  "case_id": "T11",
+  "captured_state_before": {
+    "items": [
+      {
+        "product_id": "cold_coffee",
+        "quantity": 1,
+        "unit_price_paise": 12000
+      }
+    ],
+    "total_paise": 12000,
+    "status": "draft",
+    "payment_status": "unpaid"
+  },
+  "runs": [
+    {
+      "id": "e0f03608-382f-5c92-8941-5a7d8a149e03",
+      "trace_id": "e0f03608-382f-5c92-8941-5a7d8a149e03",
+      "parent_run_id": null,
+      "name": "kiosk.chat",
+      "run_type": "chain",
+      "start_time": "2026-10-27T09:11:00+00:00",
+      "end_time": "2026-10-27T09:11:00.810000+00:00",
+      "inputs": {
+        "query": "Show my order."
+      },
+      "outputs": {
+        "answer": "Your order is correct.",
+        "request_id": "T11",
+        "saved_order": null
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T11"
+        }
+      }
+    },
+    {
+      "id": "593cdbec-756f-5f8f-915f-985f2755af76",
+      "trace_id": "e0f03608-382f-5c92-8941-5a7d8a149e03",
+      "parent_run_id": "e0f03608-382f-5c92-8941-5a7d8a149e03",
+      "name": "ChatOpenAI",
+      "run_type": "llm",
+      "start_time": "2026-10-27T09:11:00.500000+00:00",
+      "end_time": "2026-10-27T09:11:00.800000+00:00",
+      "inputs": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use actual menu and order tools. Draft is not paid. Above ₹500 requires approval."
+          },
+          {
+            "role": "user",
+            "content": "My earlier draft is recorded in the tool context below."
+          },
+          {
+            "role": "user",
+            "content": "Show my order."
+          }
+        ]
+      },
+      "outputs": {
+        "message": {
+          "role": "assistant",
+          "content": "Your order is correct."
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T11"
+        }
+      }
+    }
+  ]
+}

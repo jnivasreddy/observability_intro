@@ -1,0 +1,108 @@
+{
+  "notice": "SYNTHETIC teaching fixture; representative LangSmith run fields, not a byte-for-byte UI export.",
+  "case_id": "T04",
+  "captured_state_before": {
+    "items": [],
+    "total_paise": 0,
+    "status": "draft",
+    "payment_status": "unpaid"
+  },
+  "runs": [
+    {
+      "id": "0d23b801-6cb7-5774-a3cd-1755ea6ac1df",
+      "trace_id": "0d23b801-6cb7-5774-a3cd-1755ea6ac1df",
+      "parent_run_id": null,
+      "name": "kiosk.chat",
+      "run_type": "chain",
+      "start_time": "2026-10-27T09:04:00+00:00",
+      "end_time": "2026-10-27T09:04:09.010000+00:00",
+      "inputs": {
+        "query": "Show the menu and save 1 cold coffee."
+      },
+      "outputs": null,
+      "error": "TimeoutError",
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T04"
+        }
+      }
+    },
+    {
+      "id": "6b2fd0b6-4628-5f85-baee-a95fc1ee6b06",
+      "trace_id": "0d23b801-6cb7-5774-a3cd-1755ea6ac1df",
+      "parent_run_id": "0d23b801-6cb7-5774-a3cd-1755ea6ac1df",
+      "name": "ChatOpenAI",
+      "run_type": "llm",
+      "start_time": "2026-10-27T09:04:00.500000+00:00",
+      "end_time": "2026-10-27T09:04:00.800000+00:00",
+      "inputs": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use actual menu and order tools. Draft is not paid. Above ₹500 requires approval."
+          },
+          {
+            "role": "user",
+            "content": "Show the menu and save 1 cold coffee."
+          }
+        ]
+      },
+      "outputs": {
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "tool_calls": [
+            {
+              "id": "call_0",
+              "type": "function",
+              "function": {
+                "name": "get_menu",
+                "arguments": "{}"
+              }
+            }
+          ]
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T04"
+        }
+      }
+    },
+    {
+      "id": "5ecf1873-663d-5040-b8f0-af542733cd7c",
+      "trace_id": "0d23b801-6cb7-5774-a3cd-1755ea6ac1df",
+      "parent_run_id": "0d23b801-6cb7-5774-a3cd-1755ea6ac1df",
+      "name": "tool_dispatch",
+      "run_type": "chain",
+      "start_time": "2026-10-27T09:04:01+00:00",
+      "end_time": "2026-10-27T09:04:09+00:00",
+      "inputs": {
+        "requested_tool": "get_menu"
+      },
+      "outputs": null,
+      "error": "TimeoutError: menu lookup timed out after 8 seconds",
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T04"
+        }
+      }
+    }
+  ]
+}

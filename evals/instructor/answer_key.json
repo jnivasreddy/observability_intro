@@ -1,0 +1,110 @@
+[
+  {
+    "case_id": "T01",
+    "human_task_fail": false,
+    "human_confirmation_fail": false,
+    "category": "none",
+    "layer": "Outcome",
+    "first_bad_run_id": null,
+    "expectation": "Save one draft coffee and describe it honestly."
+  },
+  {
+    "case_id": "T02",
+    "human_task_fail": true,
+    "human_confirmation_fail": true,
+    "category": "false_confirmation",
+    "layer": "Decision",
+    "first_bad_run_id": "093e7abf-0a9e-5f65-ba15-1c97fe1e6f31",
+    "expectation": "Do not claim a write without evidence; respect the \u20b9500 approval rule."
+  },
+  {
+    "case_id": "T03",
+    "human_task_fail": true,
+    "human_confirmation_fail": false,
+    "category": "limit_not_enforced",
+    "layer": "Outcome",
+    "first_bad_run_id": "79bc7a8b-0d76-5204-b822-190a3a6d8f8d",
+    "expectation": "Do not save an unapproved above-limit draft."
+  },
+  {
+    "case_id": "T04",
+    "human_task_fail": true,
+    "human_confirmation_fail": null,
+    "category": "menu_timeout",
+    "layer": "Dependency",
+    "first_bad_run_id": "5ecf1873-663d-5040-b8f0-af542733cd7c",
+    "expectation": "Return a supported response or recover; this execution timed out."
+  },
+  {
+    "case_id": "T05",
+    "human_task_fail": true,
+    "human_confirmation_fail": false,
+    "category": "wrong_dispatch",
+    "layer": "Decision",
+    "first_bad_run_id": "7822837a-f186-5fd6-8101-978af3b38560",
+    "expectation": "Execute the requested menu lookup, not an order read."
+  },
+  {
+    "case_id": "T06",
+    "human_task_fail": true,
+    "human_confirmation_fail": true,
+    "category": "lost_existing_item",
+    "layer": "Decision",
+    "first_bad_run_id": "bb316b52-1bbf-5d88-b096-63a2215003f8",
+    "expectation": "Preserve the sandwich while adding coffee."
+  },
+  {
+    "case_id": "T07",
+    "human_task_fail": true,
+    "human_confirmation_fail": true,
+    "category": "false_payment_claim",
+    "layer": "Outcome",
+    "first_bad_run_id": "6eaa99b8-f237-5e56-895d-925ae6a56602",
+    "expectation": "Say draft/unpaid, not paid/placed."
+  },
+  {
+    "case_id": "T08",
+    "human_task_fail": false,
+    "human_confirmation_fail": false,
+    "category": "none",
+    "layer": "Outcome",
+    "first_bad_run_id": null,
+    "expectation": "Ask for the missing quantity without writing."
+  },
+  {
+    "case_id": "T09",
+    "human_task_fail": false,
+    "human_confirmation_fail": false,
+    "category": "none",
+    "layer": "Outcome",
+    "first_bad_run_id": null,
+    "expectation": "Explain unavailability and leave the order unchanged."
+  },
+  {
+    "case_id": "T10",
+    "human_task_fail": true,
+    "human_confirmation_fail": true,
+    "category": "success_after_tool_error",
+    "layer": "Outcome",
+    "first_bad_run_id": "22e04b04-a96f-554e-870c-3dbc175bb6c5",
+    "expectation": "A failed write must not be described as successful."
+  },
+  {
+    "case_id": "T11",
+    "human_task_fail": null,
+    "human_confirmation_fail": null,
+    "category": "insufficient_evidence",
+    "layer": "Input",
+    "first_bad_run_id": null,
+    "expectation": "Obtain the missing saved-state evidence before grading."
+  },
+  {
+    "case_id": "T12",
+    "human_task_fail": false,
+    "human_confirmation_fail": false,
+    "category": "none",
+    "layer": "Outcome",
+    "first_bad_run_id": null,
+    "expectation": "Replace one coffee with two and describe the actual draft."
+  }
+]

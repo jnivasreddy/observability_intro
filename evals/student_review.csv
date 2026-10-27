@@ -1,0 +1,13 @@
+case_id,root_id,human_task_fail,human_confirmation_fail,category,layer,first_bad_run_id,evidence,expected_behavior,judge_confirmation_fail
+T01,a94e66c8-40ce-5e1e-a226-a84ad72451a7,,,,,,,,
+T02,1eccc3f7-f0d0-5aa1-98bb-a88f4c8a9b9f,,,,,,,,
+T03,c9173b16-9708-5a20-a8e8-31f318e5e6eb,,,,,,,,
+T04,0d23b801-6cb7-5774-a3cd-1755ea6ac1df,,,,,,,,
+T05,d2dec368-30ef-56a8-8e15-dd6802359c4b,,,,,,,,
+T06,7e289a71-e5bb-5ca6-93f3-b4773be9e1fc,,,,,,,,
+T07,1b381298-e00b-5dc3-8714-ff0acb59a3f8,,,,,,,,
+T08,9e8806d6-3a89-5b6f-8c3d-c30ffa5cd152,,,,,,,,
+T09,cbabb890-fcf6-5665-80e1-1de619d5825e,,,,,,,,
+T10,78228290-1a21-5201-8db4-6671f55bf315,,,,,,,,
+T11,e0f03608-382f-5c92-8941-5a7d8a149e03,,,,,,,,
+T12,e6e90473-11cc-54ef-8f6f-2201af682646,,,,,,,,

@@ -1,0 +1,483 @@
+{
+  "notice": "SYNTHETIC teaching fixture; representative LangSmith run fields, not a byte-for-byte UI export.",
+  "case_id": "T12",
+  "captured_state_before": {
+    "items": [
+      {
+        "product_id": "cold_coffee",
+        "quantity": 1,
+        "unit_price_paise": 12000
+      }
+    ],
+    "total_paise": 12000,
+    "status": "draft",
+    "payment_status": "unpaid"
+  },
+  "runs": [
+    {
+      "id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "trace_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "parent_run_id": null,
+      "name": "kiosk.chat",
+      "run_type": "chain",
+      "start_time": "2026-10-27T09:12:00+00:00",
+      "end_time": "2026-10-27T09:12:03.810000+00:00",
+      "inputs": {
+        "query": "Change my draft to 2 cold coffees."
+      },
+      "outputs": {
+        "answer": "Your draft now contains 2 cold coffees, ₹240. It remains unpaid.",
+        "request_id": "T12",
+        "saved_order": {
+          "items": [
+            {
+              "product_id": "cold_coffee",
+              "quantity": 2,
+              "unit_price_paise": 12000
+            }
+          ],
+          "total_paise": 24000,
+          "status": "draft",
+          "payment_status": "unpaid"
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T12"
+        }
+      }
+    },
+    {
+      "id": "b149bee8-22c4-5d0f-8087-70796fb38974",
+      "trace_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "parent_run_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "name": "ChatOpenAI",
+      "run_type": "llm",
+      "start_time": "2026-10-27T09:12:00.500000+00:00",
+      "end_time": "2026-10-27T09:12:00.800000+00:00",
+      "inputs": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use actual menu and order tools. Draft is not paid. Above ₹500 requires approval."
+          },
+          {
+            "role": "user",
+            "content": "My earlier draft is recorded in the tool context below."
+          },
+          {
+            "role": "user",
+            "content": "Change my draft to 2 cold coffees."
+          }
+        ]
+      },
+      "outputs": {
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "tool_calls": [
+            {
+              "id": "call_0",
+              "type": "function",
+              "function": {
+                "name": "get_menu",
+                "arguments": "{}"
+              }
+            }
+          ]
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T12"
+        }
+      }
+    },
+    {
+      "id": "35e34e39-95fe-53e9-9cac-b2ce20b9c918",
+      "trace_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "parent_run_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "name": "get_menu",
+      "run_type": "tool",
+      "start_time": "2026-10-27T09:12:01+00:00",
+      "end_time": "2026-10-27T09:12:01.300000+00:00",
+      "inputs": {},
+      "outputs": {
+        "result": [
+          {
+            "product_id": "cold_coffee",
+            "name": "Cold Coffee",
+            "price_paise": 12000,
+            "stock_quantity": 20
+          },
+          {
+            "product_id": "veg_sandwich",
+            "name": "Veg Sandwich",
+            "price_paise": 10000,
+            "stock_quantity": 15
+          }
+        ]
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T12"
+        }
+      }
+    },
+    {
+      "id": "81d6ee90-a7a8-5046-9d08-706102b1d793",
+      "trace_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "parent_run_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "name": "ChatOpenAI",
+      "run_type": "llm",
+      "start_time": "2026-10-27T09:12:01.500000+00:00",
+      "end_time": "2026-10-27T09:12:01.800000+00:00",
+      "inputs": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use actual menu and order tools. Draft is not paid. Above ₹500 requires approval."
+          },
+          {
+            "role": "user",
+            "content": "My earlier draft is recorded in the tool context below."
+          },
+          {
+            "role": "user",
+            "content": "Change my draft to 2 cold coffees."
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_0",
+                "type": "function",
+                "function": {
+                  "name": "get_menu",
+                  "arguments": "{}"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_0",
+            "content": "[{\"product_id\": \"cold_coffee\", \"name\": \"Cold Coffee\", \"price_paise\": 12000, \"stock_quantity\": 20}, {\"product_id\": \"veg_sandwich\", \"name\": \"Veg Sandwich\", \"price_paise\": 10000, \"stock_quantity\": 15}]"
+          }
+        ]
+      },
+      "outputs": {
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "tool_calls": [
+            {
+              "id": "call_2",
+              "type": "function",
+              "function": {
+                "name": "get_current_order",
+                "arguments": "{}"
+              }
+            }
+          ]
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T12"
+        }
+      }
+    },
+    {
+      "id": "008183fe-1c64-5ceb-9c06-b33d25f3af3c",
+      "trace_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "parent_run_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "name": "get_current_order",
+      "run_type": "tool",
+      "start_time": "2026-10-27T09:12:02+00:00",
+      "end_time": "2026-10-27T09:12:02.300000+00:00",
+      "inputs": {},
+      "outputs": {
+        "result": {
+          "items": [
+            {
+              "product_id": "cold_coffee",
+              "quantity": 1,
+              "unit_price_paise": 12000
+            }
+          ],
+          "total_paise": 12000,
+          "status": "draft",
+          "payment_status": "unpaid"
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T12"
+        }
+      }
+    },
+    {
+      "id": "104e531b-97c6-53b4-9f06-db9d04f5a169",
+      "trace_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "parent_run_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "name": "ChatOpenAI",
+      "run_type": "llm",
+      "start_time": "2026-10-27T09:12:02.500000+00:00",
+      "end_time": "2026-10-27T09:12:02.800000+00:00",
+      "inputs": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use actual menu and order tools. Draft is not paid. Above ₹500 requires approval."
+          },
+          {
+            "role": "user",
+            "content": "My earlier draft is recorded in the tool context below."
+          },
+          {
+            "role": "user",
+            "content": "Change my draft to 2 cold coffees."
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_0",
+                "type": "function",
+                "function": {
+                  "name": "get_menu",
+                  "arguments": "{}"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_0",
+            "content": "[{\"product_id\": \"cold_coffee\", \"name\": \"Cold Coffee\", \"price_paise\": 12000, \"stock_quantity\": 20}, {\"product_id\": \"veg_sandwich\", \"name\": \"Veg Sandwich\", \"price_paise\": 10000, \"stock_quantity\": 15}]"
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_2",
+                "type": "function",
+                "function": {
+                  "name": "get_current_order",
+                  "arguments": "{}"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_2",
+            "content": "{\"items\": [{\"product_id\": \"cold_coffee\", \"quantity\": 1, \"unit_price_paise\": 12000}], \"total_paise\": 12000, \"status\": \"draft\", \"payment_status\": \"unpaid\"}"
+          }
+        ]
+      },
+      "outputs": {
+        "message": {
+          "role": "assistant",
+          "content": "",
+          "tool_calls": [
+            {
+              "id": "call_4",
+              "type": "function",
+              "function": {
+                "name": "set_order",
+                "arguments": "{\"items\": [{\"product_id\": \"cold_coffee\", \"quantity\": 2}]}"
+              }
+            }
+          ]
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T12"
+        }
+      }
+    },
+    {
+      "id": "2a85d218-44be-5152-9272-683df1c3b5bf",
+      "trace_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "parent_run_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "name": "set_order",
+      "run_type": "tool",
+      "start_time": "2026-10-27T09:12:03+00:00",
+      "end_time": "2026-10-27T09:12:03.300000+00:00",
+      "inputs": {
+        "items": [
+          {
+            "product_id": "cold_coffee",
+            "quantity": 2
+          }
+        ]
+      },
+      "outputs": {
+        "result": {
+          "items": [
+            {
+              "product_id": "cold_coffee",
+              "quantity": 2,
+              "unit_price_paise": 12000
+            }
+          ],
+          "total_paise": 24000,
+          "status": "draft",
+          "payment_status": "unpaid"
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T12"
+        }
+      }
+    },
+    {
+      "id": "c8259dc7-78ef-5103-9f4b-ee63d9f3122d",
+      "trace_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "parent_run_id": "e6e90473-11cc-54ef-8f6f-2201af682646",
+      "name": "ChatOpenAI",
+      "run_type": "llm",
+      "start_time": "2026-10-27T09:12:03.500000+00:00",
+      "end_time": "2026-10-27T09:12:03.800000+00:00",
+      "inputs": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "Use actual menu and order tools. Draft is not paid. Above ₹500 requires approval."
+          },
+          {
+            "role": "user",
+            "content": "My earlier draft is recorded in the tool context below."
+          },
+          {
+            "role": "user",
+            "content": "Change my draft to 2 cold coffees."
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_0",
+                "type": "function",
+                "function": {
+                  "name": "get_menu",
+                  "arguments": "{}"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_0",
+            "content": "[{\"product_id\": \"cold_coffee\", \"name\": \"Cold Coffee\", \"price_paise\": 12000, \"stock_quantity\": 20}, {\"product_id\": \"veg_sandwich\", \"name\": \"Veg Sandwich\", \"price_paise\": 10000, \"stock_quantity\": 15}]"
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_2",
+                "type": "function",
+                "function": {
+                  "name": "get_current_order",
+                  "arguments": "{}"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_2",
+            "content": "{\"items\": [{\"product_id\": \"cold_coffee\", \"quantity\": 1, \"unit_price_paise\": 12000}], \"total_paise\": 12000, \"status\": \"draft\", \"payment_status\": \"unpaid\"}"
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_4",
+                "type": "function",
+                "function": {
+                  "name": "set_order",
+                  "arguments": "{\"items\": [{\"product_id\": \"cold_coffee\", \"quantity\": 2}]}"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_4",
+            "content": "{\"items\": [{\"product_id\": \"cold_coffee\", \"quantity\": 2, \"unit_price_paise\": 12000}], \"total_paise\": 24000, \"status\": \"draft\", \"payment_status\": \"unpaid\"}"
+          }
+        ]
+      },
+      "outputs": {
+        "message": {
+          "role": "assistant",
+          "content": "Your draft now contains 2 cold coffees, ₹240. It remains unpaid."
+        }
+      },
+      "error": null,
+      "tags": [
+        "SYNTHETIC",
+        "classroom"
+      ],
+      "extra": {
+        "metadata": {
+          "synthetic": true,
+          "case_id": "T12"
+        }
+      }
+    }
+  ]
+}
